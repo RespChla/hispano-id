@@ -10,7 +10,9 @@ Esta distribución está destinada a los navegadores Windows administrados del C
 - Manifiesto de actualizaciones: `https://respchla.github.io/hispano-id/updates.xml`
 - Versión: **2.0.3**
 
-El estudiante debe usar su cuenta escolar en el perfil de Chrome y completar la autorización de Google si la extensión la solicita. Cada perfil muestra su propio nombre. La etiqueta conserva su tamaño cuando cambia el zoom de la página.
+El estudiante debe usar su cuenta escolar en el perfil de Chrome. El administrador debe configurar la **instalación forzada**, que impide quitar o desactivar la extensión desde Chrome, y la autorización OAuth administrativa antes de desplegarla. El objetivo es que el nombre aparezca automáticamente, sin pedir consentimiento a cada estudiante. Cada perfil muestra su propio nombre y la etiqueta conserva su tamaño cuando cambia el zoom de la página.
+
+Google permite [autorizar clientes OAuth mediante delegación de todo el dominio](https://knowledge.workspace.google.com/admin/apps/control-api-access-with-domain-wide-delegation) para omitir el consentimiento individual. Los únicos permisos requeridos son `openid` y `https://www.googleapis.com/auth/userinfo.profile`. Esta autorización tiene alcance de dominio; la instalación puede limitarse a las UO seleccionadas. La publicación del paquete no aplica por sí sola estas políticas. Debe validarse primero con cuentas de prueba sin autorizaciones previas; si aparece un aviso, el despliegue aún no cumple el requisito.
 
 ## Datos y alcance
 
