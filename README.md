@@ -8,9 +8,17 @@ Esta distribución está destinada a los navegadores Windows administrados del C
 
 - ID de la extensión: `kbcdbfkpcfghihghjhmmmicadfkgnlnd`
 - Manifiesto de actualizaciones: `https://respchla.github.io/hispano-id/updates.xml`
-- Versión: `2.0.4`
+- Versión: `2.0.5`
 
 El estudiante debe usar su cuenta escolar en el perfil de Chrome. El administrador debe configurar la **instalación forzada**, que impide quitar o desactivar la extensión desde Chrome, y la autorización OAuth administrativa antes de desplegarla. El objetivo es que el nombre aparezca automáticamente, sin pedir consentimiento a cada estudiante. Cada perfil muestra su propio nombre y la etiqueta conserva su tamaño cuando cambia el zoom de la página. Google permite [autorizar clientes OAuth mediante delegación de todo el dominio](https://knowledge.workspace.google.com/admin/apps/control-api-access-with-domain-wide-delegation) para omitir el consentimiento individual. Los únicos permisos requeridos son `openid` y `https://www.googleapis.com/auth/userinfo.profile`. Esta autorización tiene alcance de dominio; la instalación puede limitarse a las UO seleccionadas. La publicación del paquete no aplica por sí sola estas políticas. Debe validarse primero con cuentas de prueba sin autorizaciones previas; si aparece un aviso, el despliegue aún no cumple el requisito.
+
+## Actualización 2.0.5
+
+Corrige una espera intermitente al abrir varias páginas con la extensión recién iniciada: todas las solicitudes esperan la verificación de la cuenta. Si la comunicación falla o el estado sigue en comprobación, la pestaña visible realiza hasta tres reintentos breves antes de volver a la consulta normal. Un fallo atrasado no elimina un nombre verificado recibido después.
+
+Se mantienen los permisos, la caducidad y la eliminación del nombre al cerrar sesión; no se guarda el nombre anterior como solución a un fallo. Pasaron 19 pruebas unitarias y pruebas de Chrome aislado que incluyen apertura y activación de pestañas, navegación, fallos de comunicación, respuestas atrasadas y las comprobaciones de zoom de 2.0.4.
+
+La pantalla interna de Nueva pestaña de Chrome no admite la etiqueta de páginas web. Esta versión conserva esa pantalla. Al navegar a una página web compatible, se solicita automáticamente la identidad.
 
 ## Actualización 2.0.4
 
@@ -21,3 +29,4 @@ Se mantienen los mismos permisos y la caducidad del nombre. Se comprobaron en Ch
 ## Datos y alcance
 
 Hispano ID consulta directamente a Google el nombre del perfil mediante los permisos `openid` y `userinfo.profile`. No registra historial, contraseñas ni contenido de páginas. El nombre se muestra dentro de la página visitada y forma parte de su contenido visible. No se garantiza su presencia en páginas internas de Chrome, documentos protegidos ni vídeos a pantalla completa. Este repositorio aloja únicamente archivos de distribución. No contiene nombres de estudiantes, tokens de acceso ni la clave privada usada para firmar las actualizaciones. Las descargas se sirven mediante GitHub Pages, sujeto a las políticas de privacidad de GitHub.
+
