@@ -1,32 +1,25 @@
 # Hispano ID
 
-Distribución de la extensión institucional para mostrar el nombre de la cuenta principal de Chrome en las páginas web compatibles.
+Distribución institucional para mostrar el nombre de la cuenta principal de Chrome en las páginas web compatibles y en Nueva pestaña de Hispano ID.
 
 ## Instalación administrada
 
-Esta distribución está destinada a los navegadores Windows administrados del Colegio Hispanoamericano. La instalación se configura desde Google Admin para las unidades organizativas seleccionadas.
+- ID: `kbcdbfkpcfghihghjhmmmicadfkgnlnd`
+- Actualizaciones: `https://respchla.github.io/hispano-id/updates.xml`
+- Versión: `2.0.6`
 
-- ID de la extensión: `kbcdbfkpcfghihghjhmmmicadfkgnlnd`
-- Manifiesto de actualizaciones: `https://respchla.github.io/hispano-id/updates.xml`
-- Versión: `2.0.5`
+Destinada a Chrome administrado en Windows. La instalación forzada y la autorización de Google se configuran por el administrador del colegio. Los permisos de Google se mantienen en `openid` y `https://www.googleapis.com/auth/userinfo.profile`. Cada perfil muestra el nombre de su propia cuenta principal; no se pide al estudiante escribir su nombre ni se inicia una autorización interactiva al abrir Nueva pestaña.
 
-El estudiante debe usar su cuenta escolar en el perfil de Chrome. El administrador debe configurar la **instalación forzada**, que impide quitar o desactivar la extensión desde Chrome, y la autorización OAuth administrativa antes de desplegarla. El objetivo es que el nombre aparezca automáticamente, sin pedir consentimiento a cada estudiante. Cada perfil muestra su propio nombre y la etiqueta conserva su tamaño cuando cambia el zoom de la página. Google permite [autorizar clientes OAuth mediante delegación de todo el dominio](https://knowledge.workspace.google.com/admin/apps/control-api-access-with-domain-wide-delegation) para omitir el consentimiento individual. Los únicos permisos requeridos son `openid` y `https://www.googleapis.com/auth/userinfo.profile`. Esta autorización tiene alcance de dominio; la instalación puede limitarse a las UO seleccionadas. La publicación del paquete no aplica por sí sola estas políticas. Debe validarse primero con cuentas de prueba sin autorizaciones previas; si aparece un aviso, el despliegue aún no cumple el requisito.
+## Actualización 2.0.6
 
-## Actualización 2.0.5
+Incluye una Nueva pestaña de Hispano ID con búsqueda en Google, accesos a Classroom, Drive y Gmail, y el nombre verificado en la esquina inferior derecha. Utiliza el [mecanismo de reemplazo de Nueva pestaña de Chrome](https://developer.chrome.com/docs/extensions/develop/ui/override-chrome-pages). La búsqueda envía a Google únicamente el texto escrito, sin añadir el nombre de la cuenta.
 
-Corrige una espera intermitente al abrir varias páginas con la extensión recién iniciada: todas las solicitudes esperan la verificación de la cuenta. Si la comunicación falla o el estado sigue en comprobación, la pestaña visible realiza hasta tres reintentos breves antes de volver a la consulta normal. Un fallo atrasado no elimina un nombre verificado recibido después.
+La etiqueta comparte las comprobaciones de identidad, caducidad, renovación automática y ajuste de tamaño de las páginas web. Los avisos de cambio de cuenta y zoom llegan también a la página de la extensión; los avisos de zoom se limitan a su pestaña. La instalación conserva el ID, el cliente OAuth y los permisos existentes.
 
-Se mantienen los permisos, la caducidad y la eliminación del nombre al cerrar sesión; no se guarda el nombre anterior como solución a un fallo. Pasaron 19 pruebas unitarias y pruebas de Chrome aislado que incluyen apertura y activación de pestañas, navegación, fallos de comunicación, respuestas atrasadas y las comprobaciones de zoom de 2.0.4.
-
-La pantalla interna de Nueva pestaña de Chrome no admite la etiqueta de páginas web. Esta versión conserva esa pantalla. Al navegar a una página web compatible, se solicita automáticamente la identidad.
-
-## Actualización 2.0.4
-
-La etiqueta se recupera cuando una página la elimina al reorganizar su diseño. La posición y el tamaño se ajustan al área visible tanto con el zoom de página como con la ampliación visual. Un fallo aislado de la consulta de zoom no descarta una identidad válida.
-
-Se mantienen los mismos permisos y la caducidad del nombre. Se comprobaron en Chrome aislado el zoom de página de 25–500 %, la ampliación visual de 1,639–3×, las cuatro esquinas configurables, formularios largos, la reinyección, el cambio de cuenta y el cierre de sesión. Estas pruebas no sustituyen la comprobación en cada equipo administrado.
+Validación: 19 pruebas unitarias y Chrome aislado con cuentas ficticias. Se comprobó el reemplazo real de Nueva pestaña y de una ventana nueva, búsqueda con caracteres especiales, etiqueta tras navegar a resultados, recarga, cierre y cambio de cuenta simulados, y ausencia de solicitudes de autorización interactivas. El ajuste de zoom se probó en el mismo documento abierto mediante su URL de extensión, porque Chrome rechaza `tabs.setZoom` sobre `chrome://newtab`. También pasaron las pruebas anteriores de páginas web, navegación, zoom y recuperación. Estas pruebas no confirman la recepción en cada equipo del colegio.
 
 ## Datos y alcance
 
-Hispano ID consulta directamente a Google el nombre del perfil mediante los permisos `openid` y `userinfo.profile`. No registra historial, contraseñas ni contenido de páginas. El nombre se muestra dentro de la página visitada y forma parte de su contenido visible. No se garantiza su presencia en páginas internas de Chrome, documentos protegidos ni vídeos a pantalla completa. Este repositorio aloja únicamente archivos de distribución. No contiene nombres de estudiantes, tokens de acceso ni la clave privada usada para firmar las actualizaciones. Las descargas se sirven mediante GitHub Pages, sujeto a las políticas de privacidad de GitHub.
+No se guardan nombres, historial, contraseñas ni contenido de páginas en este alojamiento. El nombre se consulta directamente a Google y se muestra en la página, donde forma parte de sus píxeles. No se garantiza en otras páginas internas de Chrome, Chrome Web Store, visores protegidos o vídeos a pantalla completa. La extensión no reemplaza la Nueva pestaña de incógnito.
 
+Este repositorio contiene únicamente archivos de distribución y conserva los paquetes anteriores. No contiene nombres de estudiantes, tokens de acceso ni la clave privada de firma. Las descargas se sirven mediante GitHub Pages.
