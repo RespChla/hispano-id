@@ -1,11 +1,7 @@
-# Piloto de cuidado de equipos
+# Piloto LAB6-07 finalizado
 
-Canal de prueba separado para un único navegador administrado. No cambia el canal general 2.0.7.
+El administrador aprobó la versión general **2.1.0** para LAB1 LENOVO, LAB2 ASUS, LAB3 ASUS, LAB4 HP, LAB5 HP, LAB6 HP y LAB7 HP.
 
-Versión de prueba: **2.0.8.13**. Maximiza una sola vez la ventana normal y activa cuando muestra las reglas pendientes. Conserva el tamaño elegido posteriormente por el usuario. No modifica ventanas de inicio de sesión, ventanas emergentes, minimizadas ni a pantalla completa. Conserva el aviso de supervisión, las reglas de cuidado, las etiquetas de numeración y el compromiso de revisar el equipo, informar daños y cuidarlo durante la sesión. No añade permisos.
+Este archivo de actualizaciones conserva una transición a la distribución general para las instalaciones que aún consulten la dirección antigua. El paquete 2.1.0 utiliza el canal general `https://respchla.github.io/hispano-id/updates.xml` y ya no muestra textos de prueba.
 
-Antes de navegar se solicita revisar las reglas de cuidado, responder a quién avisar y aceptar responsabilidad. Después abre Google y conserva el nombre verificado.
-
-La aceptación se registra únicamente en el perfil local; este alojamiento no recibe nombres, respuestas ni actividad de estudiantes. El aviso de supervisión hace referencia a los sistemas propios del colegio.
-
-Solo el administrador debe asignar este canal. Se incluye una restauración **2.0.8.14**, inactiva mientras `updates.xml` anuncie **2.0.8.13**.
+Los paquetes anteriores se conservan como archivo histórico. Los archivos de restauración del piloto no están activos y no sirven para bajar automáticamente desde 2.1.0.
