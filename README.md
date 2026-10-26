@@ -1,25 +1,21 @@
-# Hispano ID
+# Hispano ID · Cuidado de los equipos
 
-Distribución institucional para mostrar el nombre de la cuenta principal de Chrome en las páginas web compatibles.
+Versión **2.1.0** para los navegadores Windows administrados del Colegio Hispanoamericano.
 
-## Instalación administrada
+Antes de navegar, muestra las reglas de cuidado del equipo, pide indicar a quién informar un daño y aceptar el compromiso de cuidado. Se identifica la cuenta principal de Chrome y se mantiene el nombre completo en la esquina inferior derecha de las páginas compatibles. Al aceptar, abre Google. La ventana de las reglas se maximiza una sola vez; después respeta los cambios manuales de tamaño.
+
+## Distribución administrada
 
 - ID: `kbcdbfkpcfghihghjhmmmicadfkgnlnd`
 - Actualizaciones: `https://respchla.github.io/hispano-id/updates.xml`
-- Versión: `2.0.7`
+- Aplicación prevista: LAB1 LENOVO, LAB2 ASUS, LAB3 ASUS, LAB4 HP, LAB5 HP, LAB6 HP y LAB7 HP.
 
-Destinada a Chrome administrado en Windows. Mantiene la instalación forzada, el cliente OAuth y los permisos `openid` y `https://www.googleapis.com/auth/userinfo.profile`. Cada perfil muestra el nombre de su cuenta principal, sin solicitar autorización interactiva al abrir una pestaña.
-
-## Actualización 2.0.7
-
-Nueva pestaña abre directamente **https://www.google.com/**. Se elimina la pantalla de bienvenida de Hispano ID introducida en 2.0.6. La página y el buscador son los originales de Google; Hispano ID añade únicamente la etiqueta del nombre verificado. La redirección no envía nombres, identificadores ni parámetros personalizados, y no deja una pantalla intermedia en el historial de Atrás.
-
-La etiqueta conserva sus comprobaciones de cuenta, caducidad, renovación automática y ajuste al zoom. Ya no se consulta ni se muestra la identidad dentro de la página intermedia de la extensión. El cambio se distribuye por el canal existente sin modificar las políticas de instalación.
-
-Pasaron 19 pruebas unitarias y las pruebas de Chrome aislado: destino de pestañas y ventanas nuevas, búsqueda, recarga, zoom y cambio de cuenta con identidades ficticias. Se verificó además la página pública real de Google tras abrir Nueva pestaña, mostrando la etiqueta de una cuenta ficticia. Las pruebas no confirman la recepción de la actualización en cada equipo administrado.
+Conserva el ID y el cliente OAuth institucional. La instalación forzada y la autorización administrativa se configuran en Google Admin. El estudiante usa su cuenta del colegio en el perfil de Chrome; no escribe su nombre ni autoriza individualmente la aplicación. El paquete por sí solo no demuestra recepción en todos los equipos.
 
 ## Datos y alcance
 
-El nombre se consulta directamente a Google y forma parte del contenido visible de las páginas compatibles. No se registra en este alojamiento. No se garantiza la etiqueta en otras páginas internas de Chrome, Chrome Web Store, visores protegidos o vídeos a pantalla completa. Incógnito queda excluido. Abrir google.com requiere conexión de red y no reproduce los accesos directos ni la personalización de la Nueva pestaña interna de Chrome.
+La extensión obtiene el nombre mediante `openid` y `userinfo.profile`. La aceptación se guarda localmente en el perfil con nombre, identificador de cuenta, fecha y versión del texto; conserva hasta 100 registros y descarta los de más de 90 días al guardar otro. No envía estos registros a GitHub ni a un servidor de recopilación. No incorpora captura de pantalla, teclado, ratón o historial. El aviso de supervisión se refiere a los sistemas del colegio.
 
-Este repositorio contiene únicamente distribución pública, sin nombres de estudiantes, tokens ni claves privadas de firma. Conserva los paquetes anteriores. Las descargas se sirven mediante GitHub Pages.
+La pantalla de reglas controla la navegación web de Chrome. No bloquea Windows ni demuestra por sí sola que una persona haya leído las reglas o causado un daño. El nombre no se garantiza en páginas internas o superficies protegidas de Chrome. Google Accounts permanece disponible para completar el acceso.
+
+Este repositorio contiene archivos de distribución, sin claves privadas, tokens ni información de estudiantes.
